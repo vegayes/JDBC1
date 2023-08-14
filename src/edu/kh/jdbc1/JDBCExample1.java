@@ -112,27 +112,27 @@ public class JDBCExample1 {
 		
 		// 3단계 : SQL을 수행해서 반환 받은 결과(ResultSet)를 
 		//         한 행씩 접근해서 컬럼값 얻어오기
-		while(rs.next()) {
-			// rs.next() : rs가 참조하고 있는 ResultSet 객체의 
-			//             첫 번째 컬럼부터 순서대로 한 행씩 이동하며
-			//             다음 행이 있을 경우 true 없으면 false 반환
-			
-			// 컬럼 값을 얻어와야 함.
-			// rs.get자료형("컬럼명")
-			String empId = rs.getString("EMP_ID");
-			// 현재 행의 "EMP_ID"(VARCHAR2) 문자열 컬럼의 값을 얻어옴
-			
-			String empName = rs.getString("EMP_NAME");
-			
-			int salary = rs.getInt("SALARY");
-			
-			// java.sql.Date 
-			Date hireDate = rs.getDate("HIRE_DATE");
-			
-			System.out.printf("사번 : %s / 이름 : %s / 급여 : %d / 입사일 : %s\n"
-					, empId, empName, salary, hireDate.toString() );
-			// java.sql.Date의 toString() 은 yyyy-mm-dd형식으로 오버라이딩 되어있음.
-		}
+			while(rs.next()) {
+				// rs.next() : rs가 참조하고 있는 ResultSet 객체의 
+				//             첫 번째 컬럼부터 순서대로 한 행씩 이동하며
+				//             다음 행이 있을 경우 true 없으면 false 반환
+				
+				// 컬럼 값을 얻어와야 함.
+				// rs.get자료형("컬럼명")
+				String empId = rs.getString("EMP_ID");
+				// 현재 행의 "EMP_ID"(VARCHAR2) 문자열 컬럼의 값을 얻어옴
+				
+				String empName = rs.getString("EMP_NAME");
+				
+				int salary = rs.getInt("SALARY");
+				
+				// java.sql.Date 
+				Date hireDate = rs.getDate("HIRE_DATE");
+				
+				System.out.printf("사번 : %s / 이름 : %s / 급여 : %d / 입사일 : %s\n"
+						, empId, empName, salary, hireDate.toString() );
+				// java.sql.Date의 toString() 은 yyyy-mm-dd형식으로 오버라이딩 되어있음.
+			}
 
 		}catch(ClassNotFoundException e) {
 			System.out.println("JDBC 드라이버 경로가 잘못 작성되었습니다.");
@@ -149,22 +149,8 @@ public class JDBCExample1 {
 				if(con != null)	con.close(); // 이 친구를 먼저하면 기억된 캐쉬를 닫는다? (Connection을 기억하는 것이 닫힌다.)
 			}catch(SQLException e){
 				e.printStackTrace();
-			}
-			
-		}
-
-		
+			}			
+		}		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
