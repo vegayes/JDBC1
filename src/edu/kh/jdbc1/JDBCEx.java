@@ -53,10 +53,11 @@ public class JDBCEx {
 				
 				
 			}
-		}catch(Exception e) {
+		}catch(ClassNotFoundException e) {
+			System.out.println("JDBC 드라이버 경로가 잘못 작성되었습니다.");
+		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			
 			try {
 				
 				if(rs != null) rs.close();
